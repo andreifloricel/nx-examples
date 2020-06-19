@@ -1,0 +1,212 @@
+kind: Template
+apiVersion: v1
+metadata:
+  name: camicro-app-template
+  annotations:
+    openshift.io/display-name: "CA.micro Application on Quarkus"
+    description: >-
+      Creates a CA.micro quarkus application. Create with oc process -f camicro-app.yml -p SERVICE_NAME=\"MY_SERVICE\" | oc create -f -       
+    openshift.io/long-description: >-
+      This template defines route, service, deployment, image stream, build and build pipeline configuration. 
+    tags: "CA.micro, Quickstarter, OpenShift"
+    openshift.io/provider-display-name: "BMW Group, CA.micro Team"
+    openshift.io/documentation-url: "http://camicro.bmwgroup.net"
+    openshift.io/support-url: "http://camicro.bmwgroup.net"
+message: "Creating ${SERVICE_NAME} in openshift project ${OPENSHIFT_PROJECT}"
+objects:
+  - kind: Route
+    apiVersion: route.openshift.io/v1
+    metadata:
+      labels:
+        app: ${SERVICE_NAME}
+        ca.service: ${SERVICE_NAME}
+      name: ${SERVICE_NAME}
+    spec:
+      host: ${SERVICE_NAME}-${OPENSHIFT_PROJECT}.cnap-00-mp-dev.bmwgroup.net
+      port:
+        targetPort: 8080
+      to:
+        kind: Service
+        name: ${SERVICE_NAME}
+        weight: 100
+      tls:
+        termination: edge
+  - kind: Service
+    apiVersion: v1
+    metadata:
+      name: ${SERVICE_NAME}
+      labels:
+        app: ${SERVICE_NAME}
+        ca.service: ${SERVICE_NAME}
+    spec:
+      selector:
+        app: ${SERVICE_NAME}
+        deploymentconfig: ${SERVICE_NAME}
+      ports:
+        - port: 8080
+          name: http
+      type: ClusterIP
+  - kind: DeploymentConfig
+    apiVersion: apps.openshift.io/v1
+    metadata:
+      name: ${SERVICE_NAME}
+      labels:
+        app: ${SERVICE_NAME}
+        ca.service: ${SERVICE_NAME}
+    spec:
+      replicas: 1
+      selector:
+        app: ${SERVICE_NAME}
+        deploymentconfig: ${SERVICE_NAME}
+      strategy:
+        type: Rolling
+        resources: {}
+        rollingParams:
+          intervalSeconds: 1
+          maxSurge: 25%
+          maxUnavailable: 25%
+          timeoutSeconds: 600
+          updatePeriodSeconds: 1
+      template:
+        metadata:
+          labels:
+            app: ${SERVICE_NAME}
+            ca.service: ${SERVICE_NAME}
+            deploymentconfig: ${SERVICE_NAME}
+        spec:
+          containers:
+            - name: ${SERVICE_NAME}
+              image: ${OPENSHIFT_PROJECT}/${SERVICE_NAME}:latest
+              imagePullPolicy: Always
+              restartPolicy: Always
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /health/live
+                  port: 8080
+                  scheme: HTTP
+                initialDelaySeconds: 5
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /health/ready
+                  port: 8080
+                  scheme: HTTP
+                initialDelaySeconds: 5
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
+              ports:
+                - containerPort: 8080
+              env:
+                - name: message
+                  valueFrom:
+                    configMapKeyRef:
+                      name: ${SERVICE_NAME}
+                      key: hellomessage
+              resources:
+                requests:
+                  cpu: "2"
+                  memory: 128Mi
+      triggers:
+        - type: ImageChange
+          imageChangeParams:
+            automatic: true
+            from:
+              kind: ImageStreamTag
+              name: ${SERVICE_NAME}:latest
+            containerNames:
+              - ${SERVICE_NAME}
+        - type: ConfigChange
+  - kind: ConfigMap
+    apiVersion: v1
+    metadata:
+      name: ${SERVICE_NAME}
+      labels:
+        app: ${SERVICE_NAME}
+        ca.service: ${SERVICE_NAME}
+    data:
+      hellomessage: hello, openshift
+  - kind: ImageStream
+    apiVersion: v1
+    metadata:
+      labels:
+        app: ${SERVICE_NAME}
+        ca.service: ${SERVICE_NAME}
+      name: ${SERVICE_NAME}
+  - kind: BuildConfig
+    apiVersion: v1
+    metadata:
+      labels:
+        ca.service: ${SERVICE_NAME}
+        app: ${SERVICE_NAME}
+      name: ${SERVICE_NAME}
+    spec:
+      output:
+        to:
+          kind: ImageStreamTag
+          name: ${SERVICE_NAME}:latest
+      runPolicy: Serial
+      resources:
+        requests:
+          cpu: "2"
+          memory: 512Mi
+      source:
+        binary: {}
+        type: Binary
+      strategy:
+        dockerStrategy:
+          dockerfilePath: src/main/openshift/Dockerfile
+          from:
+            kind: ImageStreamTag
+            name: 'bmw-ojdk11-minimal-community:latest'
+            namespace: openshift
+        type: Docker
+  - kind: BuildConfig
+    apiVersion: v1
+    metadata:
+      labels:
+        app: ${SERVICE_NAME}
+        ca.service: ${SERVICE_NAME}
+      name: ${SERVICE_NAME}-pipeline
+    spec:
+      resources:
+        requests:
+          cpu: 2000Mi
+          memory: 1G
+      runPolicy: Serial
+      source:
+        git:
+          uri: ${GIT_URI}
+        sourceSecret:
+          name: bitbucket
+        type: Git
+      strategy:
+        jenkinsPipelineStrategy:
+          jenkinsfilePath: Jenkinsfile
+          env:
+            - name: SERVICE_URI_MP_REST_URL
+              value: http://${SERVICE_NAME}:8080
+            - name: CA_SERVICE
+              value: ${SERVICE_NAME}
+            - name: RELEASE_BUILD
+              value: "false"
+            - name: THROUGHPUT_THRESHOLD
+              value: "5"
+            - name: SONAR_PROJECT_KEY
+              value: "camicro"
+        type: JenkinsPipeline
+      triggers:
+        - type: ConfigChange
+parameters:
+  - name: SERVICE_NAME
+    description: "The name of the service, the artifactId"
+  - name: OPENSHIFT_PROJECT
+    description: "The name of openshift project: the name behind the \"-n\" e.g. camicro"
+    value: "camicro"
+  - name: GIT_URI
+    description: "The location of the CA.micro service in bitbucket, e.g. ssh://git@git.bmwgroup.net:7999/camicro/microsonic.git"
+    value: "ssh://git@git.bmwgroup.net:7999/camicro/microsonic.git"

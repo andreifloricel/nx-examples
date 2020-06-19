@@ -1,0 +1,98 @@
+#import('text', 'com.nomagic.reportwizard.tools.TextTool')
+{
+$group.init()#set($g = $group.create())#foreach($e in $elements)$g.put($e.elementType, $e)#end
+ "packages": [
+#set($packages = $array.createArray())
+#set($void = $array.addCollection($packages, $Package))
+#set($void = $array.addCollection($packages, $SmartPackage))
+#foreach($p in $packages)
+        {
+            "guid": "$p.elementID",
+            "parentGuid": "$p.owningPackage.elementID",
+            "fullName": "$report.getQualifiedName($p, '/')",
+            "name": "$p.name",
+            "comment": "$report.getElementComment($p).body"
+        }#if($foreach.hasNext),#end
+#end
+    ],
+    "enumerations": [
+#foreach($e in $g.get("enumeration"))
+        {
+            "guid": "$e.elementID",
+            "ownerGuid": "$e.owner.elementID",
+            "packageGuid": "$e.owner.owner.owningPackage.elementID",
+            "name": "$e.name",
+            "ownerName": "$e.owner.name",
+            "package": "$report.getQualifiedName($e.owner.owningPackage,'/')",
+            "documentation": "$e.documentation",
+            "comment": "$report.getElementComment($e).body"
+        }#if($foreach.hasNext),#end
+#end
+    ],
+    "enumerationliterals": [
+#foreach($e in $g.get("enumerationliteral"))
+        {
+            "guid": "$e.elementID",
+            "ownerGuid": "$e.owner.elementID",
+            "name": "$e.name",
+            "owner": "$e.owner.name",
+            "documentation": "$e.documentation",
+            "comment": "$report.getElementComment($e).body"
+        }#if($foreach.hasNext),#end
+#end
+    ],
+    "classes": [
+#foreach ($class in $Class)
+        {
+            "name": "$class.name",
+            "guid": "$class.elementID",
+            "owner":  "$class.owner.name",
+            "ownerGuid":  "$class.owner.elementID",
+            "visibility": "$class.visibility",
+            "documentation": "$e.documentation",
+            "comment": "$report.getElementComment($e).body"
+        }#if($foreach.hasNext),#end
+#end
+    ],
+    "properties": [
+##Filter out properties without a name as these are association properties and are handled lower
+#set($namedProperties = [])
+#foreach($p in $g.get("property"))
+	#if($p.name != "")
+		#set($void = $namedProperties.add($p))
+	#end
+#end
+#foreach($e in $namedProperties){
+							"guid": "$e.elementID",
+							"ownerGuid": "$e.owner.elementID",
+							"ownerName": "$e.owner.name",
+							"packageGuid": "$e.owner.package.elementID",
+							"typeGuid": "$e.Type.ID",
+							"name": "$e.name",
+							"text": "$e.text",
+							"package": "$report.getQualifiedName($e.owner.owningPackage,'/')",
+							"type": "$e.Type.name",
+							"typeModifier": "$e.typeModifier",
+							"isID": "$e.isID",
+							"lowerValue": "$e.lowerValue.value",
+							"upperValue": "$e.upperValue.value",
+							"documentation": "$text.noLineBreak($e.documentation)"
+						}#if($foreach.hasNext),#end
+#end
+    ],
+    "associations": [
+#foreach($e in $g.get("association")){
+							"guid": "$e.elementID",
+							"members":[
+							#foreach($m in $e.member){
+											 ##
+											 "classGuid": "$m.owner.elementID",
+											 "className": "$m.owner.name",
+											 "lowerValue": "$m.lowerValue.value",
+											 "upperValue": "$m.upperValue.value"
+										}#if($foreach.hasNext),#end
+							#end	]            
+						}#if($foreach.hasNext),#end
+#end
+    ]
+}

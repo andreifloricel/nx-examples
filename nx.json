@@ -71,6 +71,17 @@
     },
     "shared-styles": {
       "tags": ["scope:shared", "type:styles"]
+    },
+    "products-service": {
+      "tags": ["scope:products", "type:java-app"],
+      "implicitDependencies": ["some-java-util"]
+    },
+    "cart-service": {
+      "tags": ["scope:cart", "type:java-app"],
+      "implicitDependencies": ["some-java-util"]
+    },
+    "some-java-util": {
+      "tags": ["scope:shared", "type:java-app"]
     }
   }
 }

@@ -1,0 +1,770 @@
+{
+		"packages": [
+		{
+		"guid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"parentGuid": "ec1788fb-536e-41fa-a9d9-5e3c4362f852",
+		"fullName": "Datenmodell TED/Aerodaten",
+		"name": "Aerodaten",
+		"comment": ""
+		}    ],
+		"enumerations": [
+		],
+		"enumerationliterals": [
+		],
+		"classes": [
+		{
+		"name": "SA-Delta",
+		"guid": "9307fc1c-e539-472f-b852-669394e2b3ad",
+		"owner":  "Aerodaten",
+		"ownerGuid":  "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"visibility": "public",
+		"documentation": "",
+		"comment": ""
+		},        {
+		"name": "GemesseneGewichtung",
+		"guid": "3cb13a1f-96a6-4dbb-9b45-afc0be579188",
+		"owner":  "Aerodaten",
+		"ownerGuid":  "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"visibility": "public",
+		"documentation": "",
+		"comment": ""
+		},        {
+		"name": "Absolutkennwertsatz",
+		"guid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"owner":  "Aerodaten",
+		"ownerGuid":  "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"visibility": "public",
+		"documentation": "",
+		"comment": ""
+		},        {
+		"name": "AktiveAeroMaßnahme",
+		"guid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"owner":  "Aerodaten",
+		"ownerGuid":  "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"visibility": "public",
+		"documentation": "",
+		"comment": ""
+		},        {
+		"name": "Gewichtungsdatensatz",
+		"guid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"owner":  "Aerodaten",
+		"ownerGuid":  "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"visibility": "public",
+		"documentation": "",
+		"comment": ""
+		},        {
+		"name": "Basisdatensatz",
+		"guid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"owner":  "Aerodaten",
+		"ownerGuid":  "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"visibility": "public",
+		"documentation": "",
+		"comment": ""
+		},        {
+		"name": "Stellung",
+		"guid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"owner":  "Aerodaten",
+		"ownerGuid":  "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"visibility": "public",
+		"documentation": "",
+		"comment": ""
+		}    ],
+		"properties": [
+		{
+		"guid": "c85ee796-a1cb-42b8-ba40-3068514099d9",
+		"ownerGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"ownerName": "AktiveAeroMaßnahme",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "338f2a48-a51d-4996-b8ed-49d8a294a562",
+		"name": "Vorhersagbar",
+		"text": "-Vorhersagbar : Boolean [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Boolean",
+		"typeModifier": "",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Das Kennzeichen gibt an, ob eine AktiveAeroMaßnahme ein vorhersagbares Verhalten zeigt, z.B. ein Spoiler, der bei einer definierten Geschwindigkeit ausfährt, oder ob das Verhalten von, aus aerodynamischer Sicht unbekannten, Einflussfaktoren abhängt und damit nicht verhersagbar ist. Dies ist z.B. bei LKSsen der Fall, die von der Kühlmitteltemperatur und weiteren Faktoren abhängig geregelt werden."
+		},{
+		"guid": "5180af62-d065-46e0-ad89-81d1678b11ba",
+		"ownerGuid": "9307fc1c-e539-472f-b852-669394e2b3ad",
+		"ownerName": "SA-Delta",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "CxDeltaBC",
+		"text": " CxDeltaBC : Real&quot;0,000&quot; [0..1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,000",
+		"isID": "false",
+		"lowerValue": "0",
+		"upperValue": "1",
+		"documentation": "Enthält den Best-Case Cx-Wert für ein SA-Delta. Er ist nur befüllt, wenn es für ein SA-Delta einen Worst-Case und einen Best-Case gibt, dies ist z.B. bei Reifen der Fall.  Der Best-Case ist nur für bestimmte Abnehmer relevant, z.B. OTD. "
+		},{
+		"guid": "2f253c77-bf59-4362-aa37-364d46a9a7a1",
+		"ownerGuid": "3cb13a1f-96a6-4dbb-9b45-afc0be579188",
+		"ownerName": "GemesseneGewichtung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "Gewichtung",
+		"text": "-Gewichtung : Real&quot;0,0000000000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,0000000000",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Die Gewichtung, mit der diese Stellung in die Berechnung des effektiven Cx-Wertes eingeht, wie sie bei der Typprüfung im Prüfstand gemessen wurde. Die Summe aller Gewichtungen eines Gewichtungsdatensatzes ist immer 1."
+		},{
+		"guid": "d84e8bb6-3211-428f-a27f-d4afaa54fdc6",
+		"ownerGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"ownerName": "Absolutkennwertsatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "CxVent",
+		"text": " CxVent : Real&quot;0,000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,000",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "tbd beim Fachbereich nachgefragt"
+		},{
+		"guid": "232b28ea-db22-4cf6-b7d6-9ff4a36e016e",
+		"ownerGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"ownerName": "Basisdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "ce7a1295-e048-4561-aed5-b6e540fc335f",
+		"name": "Typschlüssel",
+		"text": "-Typschlüssel : Datenmodell TED::Stammdaten::Fahzeugtyp [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Fahzeugtyp",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Typschlüssel, für den die Aerodaten gültig sind."
+		},{
+		"guid": "cf50d521-6893-4840-9c39-e58f83787a56",
+		"ownerGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"ownerName": "Stellung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "CxDelta",
+		"text": "-CxDelta : Real&quot;0,000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,000",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Cx-Delta-Wert dieser Stellung."
+		},{
+		"guid": "04f611e1-bf36-48f7-9e18-b8deb40f9650",
+		"ownerGuid": "3cb13a1f-96a6-4dbb-9b45-afc0be579188",
+		"ownerName": "GemesseneGewichtung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"name": "Stellung",
+		"text": "-Stellung : Datenmodell TED::Aerodaten::Stellung [1..*]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Stellung",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "-1",
+		"documentation": "Die Stellung bzw. Stellungen, auf die sich die GemesseneGewichtung bezieht."
+		},{
+		"guid": "48de9f45-2fa0-4ec8-a4be-8178f8d56bb3",
+		"ownerGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"ownerName": "Basisdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "aff1c5af-ad55-43ca-979e-bea430966121",
+		"name": "Gesetzgeber",
+		"text": "-Gesetzgeber : Datenmodell TED::Stammdaten::Gesetzgeber [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Gesetzgeber",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Gesetzgeber, für den die Aerodaten gültig sind."
+		},{
+		"guid": "916809ad-7251-48d3-a430-a32e7098fdbe",
+		"ownerGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"ownerName": "Gewichtungsdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "db01b159-93fe-44f6-9e64-fd2edaaf68aa",
+		"name": "IP-Familie",
+		"text": "-IP-Familie : Datenmodell TED::Stammdaten::IP-Familie [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "IP-Familie",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Die IP-Familie, für die dieser Gewichtungsdatensatz gilt."
+		},{
+		"guid": "de270e33-884d-45b9-a43f-20d0955bd8cb",
+		"ownerGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"ownerName": "Basisdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "6a6d7512-e907-4774-b340-7eb8c0bcaca9",
+		"name": "SET",
+		"text": "-SET : Datenmodell TED::Stammdaten::Serieneinsatztermin [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Serieneinsatztermin",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Serieneinsatz, für den die Aerodaten gültig sind."
+		},{
+		"guid": "3fe0260c-c813-44e1-88e2-966c4ffa90ca",
+		"ownerGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"ownerName": "Gewichtungsdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"name": "AktiveAeroMaßnahme",
+		"text": "-AktiveAeroMaßnahme : Datenmodell TED::Aerodaten::AktiveAeroMaßnahme [1..*]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "AktiveAeroMaßnahme",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "-1",
+		"documentation": "Die AktiveAeroMaßnahme oder Maßnahmen, für die dieser Gewichtungsdatensatz gilt."
+		},{
+		"guid": "29c78ed3-87fe-464f-b57f-e94b735fd91d",
+		"ownerGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"ownerName": "Basisdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "4910de22-4f7c-4cdc-9af8-8095bec61581",
+		"name": "Status",
+		"text": "-Status : Integer [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Integer",
+		"typeModifier": "",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Status der Aerodaten."
+		},{
+		"guid": "ef82e0ac-f7ae-435d-b05d-6447311fcc0d",
+		"ownerGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"ownerName": "Gewichtungsdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "00c5f03f-4652-4db2-932e-a67eb521949c",
+		"name": "Datum",
+		"text": "-Datum : date [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "date",
+		"typeModifier": "",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Das Datum, zu dem die Daten freigegeben wurden, und zu dem sie in den TED übertragen wurden."
+		},{
+		"guid": "109ad4fb-6cb8-47d4-8979-18daaecfc0b9",
+		"ownerGuid": "9307fc1c-e539-472f-b852-669394e2b3ad",
+		"ownerName": "SA-Delta",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"name": "Absolutkennwertsatz",
+		"text": "-Absolutkennwertsatz : Datenmodell TED::Aerodaten::Absolutkennwertsatz [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Absolutkennwertsatz",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Ein SA Delta gehört immer zu einem Absolutkennwertsatz."
+		},{
+		"guid": "33464fe5-da97-42ef-b324-099ab9bee903",
+		"ownerGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"ownerName": "Stellung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"name": "AktiveAeroMaßnahme",
+		"text": "-AktiveAeroMaßnahme : Datenmodell TED::Aerodaten::AktiveAeroMaßnahme [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "AktiveAeroMaßnahme",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Eine Stellung wird immer für eine AktiveAeroMaßnahme angegeben."
+		},{
+		"guid": "6346a4e6-a582-4b4f-8d46-ca5d833107a2",
+		"ownerGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"ownerName": "Absolutkennwertsatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "a9053e27-4395-4c31-a5ce-0b5aa00effc6",
+		"name": "SAVorbedingung",
+		"text": " SAVorbedingung : String&quot;1000&quot; [0..1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "String",
+		"typeModifier": "1000",
+		"isID": "true",
+		"lowerValue": "0",
+		"upperValue": "1",
+		"documentation": "Die Vorbedingung, ob ein bestimmter Absolutkennwertsatz gültig ist, oder nicht. Die SA-Vorbedingungen zwischen mehreren Absolutkennwertsätzen müssen überschneidungsfrei und gemeinsam vollständig sein."
+		},{
+		"guid": "eb10f33a-1cb7-47a7-8755-c1818871d577",
+		"ownerGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"ownerName": "Absolutkennwertsatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "CzHA",
+		"text": " CzHA : Real&quot;0,000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,000",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "tbd beim Fachbereich nachgefragt"
+		},{
+		"guid": "83fca503-e6d9-428d-bea1-f243948e402f",
+		"ownerGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"ownerName": "Stellung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "GewPrognose",
+		"text": "-GewPrognose : Real&quot;0,0000000000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,0000000000",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Die Gewichtung, mit der diese Stellung in die Berechnung des effektiven Cx-Wertes eingeht, für die Prognose. Hier wird in der Regel bei der Stellung eine 1 eingetragen, deren Cx-Wert dem effektiven Cx-Wert nach Experteneinschätzung am nächsten kommt, bei allen anderen Stellungen 0. Die Summe aller Gewichtungen eines Falles einer AktivenAeroMaßnahme ist immer 1. "
+		},{
+		"guid": "0a156ffe-55ce-4dfc-a639-b78e90ea8268",
+		"ownerGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"ownerName": "Stellung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "GewLow",
+		"text": "-GewLow : Real&quot;0,0000000000&quot; [0..1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,0000000000",
+		"isID": "false",
+		"lowerValue": "0",
+		"upperValue": "1",
+		"documentation": "Die Gewichtung, mit der diese Stellung in die Berechnung des effektiven Cx-Wertes eingeht, für den &quot;Low&quot; Fall. Hier wird in der Regel bei der Stellung mit dem niedrigsten Cx-Wert eine 1 eingetragen, bei allen anderen Stellungen 0. Die Summe aller Gewichtungen eines Falles einer AktivenAeroMaßnahme ist immer 1. "
+		},{
+		"guid": "b5fefc16-1c7c-4246-a11a-dd29825468bc",
+		"ownerGuid": "9307fc1c-e539-472f-b852-669394e2b3ad",
+		"ownerName": "SA-Delta",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "a9053e27-4395-4c31-a5ce-0b5aa00effc6",
+		"name": "Beziehungswissen",
+		"text": " Beziehungswissen : String&quot;1000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "String",
+		"typeModifier": "1000",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Das Beziehugnswissen drückt aus, bei welchen Fahrzeugen ein SA-Delta zutrifft, und bei welchen nicht.  Beziehungswissen Beispiel: +S100A -S205A"
+		},{
+		"guid": "631c2ce0-b6aa-45ce-b1d2-11c549fc8a78",
+		"ownerGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"ownerName": "AktiveAeroMaßnahme",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"name": "Basisdatensatz",
+		"text": "-Basisdatensatz : Datenmodell TED::Aerodaten::Basisdatensatz [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Basisdatensatz",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Basisdatensatz, für den die AktiveAeroMaßnahme gilt."
+		},{
+		"guid": "8cb25022-3679-41de-82c5-a08d0f0a9162",
+		"ownerGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"ownerName": "Basisdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "a9053e27-4395-4c31-a5ce-0b5aa00effc6",
+		"name": "Ersteller",
+		"text": "-Ersteller : String [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "String",
+		"typeModifier": "",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Die Person, die die Aerodaten erstellt hat. Es wird weder der Klarname noch die Q-Nummer verwendet, sondern die i-Nummer. "
+		},{
+		"guid": "27800fd5-6967-4bc0-904a-832d64f17a7a",
+		"ownerGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"ownerName": "Absolutkennwertsatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "CzVA",
+		"text": " CzVA : Real&quot;0,000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,000",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "tbd beim Fachbereich nachgefragt"
+		},{
+		"guid": "9398f9cc-11e7-4d1b-b3cf-ff79b423951a",
+		"ownerGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"ownerName": "AktiveAeroMaßnahme",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "a9053e27-4395-4c31-a5ce-0b5aa00effc6",
+		"name": "Name",
+		"text": "-Name : String&quot;100&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "String",
+		"typeModifier": "100",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Name der AktivenAeroMaßnahme. Er ist innerhalb eines Basisdatensatzes eindeutig. Ob eine LKS mit OKE oder UKE vorliegt soll aus dem Namen hervorgehen."
+		},{
+		"guid": "6be9d77c-568d-4dec-bf87-c672f67f1346",
+		"ownerGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"ownerName": "Basisdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "4910de22-4f7c-4cdc-9af8-8095bec61581",
+		"name": "Reifegrad",
+		"text": "-Reifegrad : Integer [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Integer",
+		"typeModifier": "",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Reifegrad der Aerodaten."
+		},{
+		"guid": "e7d14f57-c1e3-4f24-9a06-6d12c440b441",
+		"ownerGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"ownerName": "Basisdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "Stirnfläche",
+		"text": "-Stirnfläche : Real&quot;0,00&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,00",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Die Stirnfläche des Fahrzeugtypens für den die Aerodaten gelten, angegeben in m²."
+		},{
+		"guid": "519b090e-2015-4003-8de0-b3340ff130ff",
+		"ownerGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"ownerName": "Basisdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "8b810787-a032-4186-a8ec-79b15b05f377",
+		"name": "Datum",
+		"text": "-Datum : Datenmodell TED::Stammdaten::Timestamp [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Timestamp",
+		"typeModifier": "",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Das Datum, zu dem die Daten freigegeben wurden, und zu dem sie in den TED übertragen wurden."
+		},{
+		"guid": "8a1ec638-7a31-49d3-aea5-0a1e0e0f2c2e",
+		"ownerGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"ownerName": "AktiveAeroMaßnahme",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "a9053e27-4395-4c31-a5ce-0b5aa00effc6",
+		"name": "Beziehungswissen",
+		"text": "-Beziehungswissen : String&quot;1000&quot; [0..1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "String",
+		"typeModifier": "1000",
+		"isID": "false",
+		"lowerValue": "0",
+		"upperValue": "1",
+		"documentation": "Das Beziehungswissen gibt an, in welchen Fahrzeugen mit welchen SAs die AktiveAeroMaßnahme verbaut ist. Bei einer LKS können die Teilsysteme OKE und UKE mit unterschiedlichem Beziehungswissen gesteuert werden und getrennt voneinander verbaut werden."
+		},{
+		"guid": "bf498078-df1a-4007-9dc5-c4c529a1df25",
+		"ownerGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"ownerName": "Absolutkennwertsatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "CxBasiswert",
+		"text": " CxBasiswert : Real&quot;0,000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,000",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "In einer Ableitungsgruppe sind mehrere Grundfahrzeuge enthalten. Diese Grundfahrzeuge haben alle den gleichen CxBasiswert."
+		},{
+		"guid": "f00036cd-723b-4c74-8700-34343ed2f0d7",
+		"ownerGuid": "9307fc1c-e539-472f-b852-669394e2b3ad",
+		"ownerName": "SA-Delta",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "CxDeltaDefault",
+		"text": " CxDeltaDefault : Real&quot;0,000&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,000",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Enthält den Cx-Wert für ein SA-Delta, der Default-Wert ist standardmäßig zu verwenden. Wenn es für ein SA-Delta einen Worst-Case und einen Best-Case gibt, so ist der Worst-Case als Default-Wert gespeichert. Dies ist z.B. bei Reifen der Fall. "
+		},{
+		"guid": "efa9804f-46e8-4ee6-a160-0790ed20b78e",
+		"ownerGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"ownerName": "Stellung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "5f3a5ae2-c758-40d3-a297-3f267a678c80",
+		"name": "GewHigh",
+		"text": "-GewHigh : Real&quot;0,0000000000&quot; [0..1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Real",
+		"typeModifier": "0,0000000000",
+		"isID": "false",
+		"lowerValue": "0",
+		"upperValue": "1",
+		"documentation": "Die Gewichtung, mit der diese Stellung in die Berechnung des effektiven Cx-Wertes eingeht, für den &quot;High&quot; Fall. Hier wird in der Regel bei der Stellung mit dem höchsten Cx-Wert eine 1 eingetragen, bei allen anderen Stellungen 0. Die Summe aller Gewichtungen eines Falles einer AktivenAeroMaßnahme ist immer 1. "
+		},{
+		"guid": "605784f7-7ae1-471d-ad54-6628036294fa",
+		"ownerGuid": "3cb13a1f-96a6-4dbb-9b45-afc0be579188",
+		"ownerName": "GemesseneGewichtung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"name": "Gewichtungsdatensatz",
+		"text": "-Gewichtungsdatensatz : Datenmodell TED::Aerodaten::Gewichtungsdatensatz [1..*]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Gewichtungsdatensatz",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "-1",
+		"documentation": "Der Gewichtungsdatensatz, zu dem diese GemesseneGewichtung gehört."
+		},{
+		"guid": "a3e87637-a9ee-4a57-a9b9-acfcddcead2f",
+		"ownerGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"ownerName": "Absolutkennwertsatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"name": "Basisdatensatz",
+		"text": "-Basisdatensatz : Datenmodell TED::Aerodaten::Basisdatensatz [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Basisdatensatz",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Ein Absolutkennwertsatz gehört immer zu einem Basisdatensatz."
+		},{
+		"guid": "d00e8c11-e833-4052-98b4-0c357df1a0cb",
+		"ownerGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"ownerName": "Stellung",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "4910de22-4f7c-4cdc-9af8-8095bec61581",
+		"name": "Nummer",
+		"text": "-Nummer : Integer [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Integer",
+		"typeModifier": "",
+		"isID": "true",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Die Stellungen einer AktivenAeroMaßnahme werden von 0 beginnend durchnummeriert, um sie zu identifizieren."
+		},{
+		"guid": "7aa11d6f-4d49-4947-888e-6fa1fb4d1a64",
+		"ownerGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"ownerName": "Gewichtungsdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "a9053e27-4395-4c31-a5ce-0b5aa00effc6",
+		"name": "Ersteller",
+		"text": "-Ersteller : String&quot;*&quot; [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "String",
+		"typeModifier": "*",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Die Person, den Gewichtungsdatensatz erstellt hat. Es wird weder der Klarname noch die Q-Nummer verwendet, sondern die i-Nummer. "
+		},{
+		"guid": "ae734613-c863-41e1-a1aa-2a0f7641e9f0",
+		"ownerGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"ownerName": "Gewichtungsdatensatz",
+		"packageGuid": "c198de3d-3bd1-4ab5-a898-c73e6aa1cd7e",
+		"typeGuid": "4910de22-4f7c-4cdc-9af8-8095bec61581",
+		"name": "Status",
+		"text": "-Status : Integer [1]",
+		"package": "Datenmodell TED/Aerodaten",
+		"type": "Integer",
+		"typeModifier": "",
+		"isID": "false",
+		"lowerValue": "1",
+		"upperValue": "1",
+		"documentation": "Der Status des Gewichtungsdatensatzes."
+		}    ],
+		"associations": [
+		{
+		"guid": "1909ff84-53d8-418b-8cce-26dfed333df3",
+		"members":[
+		{
+		"classGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"className": "Gewichtungsdatensatz",
+		"lowerValue": "1",
+		"upperValue": "-1"
+		},							{
+		"classGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"className": "AktiveAeroMaßnahme",
+		"lowerValue": "0",
+		"upperValue": "-1"
+		}								]
+		},{
+		"guid": "dac99df6-5d78-4b53-a09a-77fd7c91baf2",
+		"members":[
+		{
+		"classGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"className": "Gewichtungsdatensatz",
+		"lowerValue": "1",
+		"upperValue": "~30"
+		},							{
+		"classGuid": "3cb13a1f-96a6-4dbb-9b45-afc0be579188",
+		"className": "GemesseneGewichtung",
+		"lowerValue": "1",
+		"upperValue": "1"
+		}								]
+		},{
+		"guid": "21b03f86-cbdd-4333-9b95-0da51b94e9f9",
+		"members":[
+		{
+		"classGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"className": "Basisdatensatz",
+		"lowerValue": "0",
+		"upperValue": "-1"
+		},							{
+		"classGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"className": "AktiveAeroMaßnahme",
+		"lowerValue": "1",
+		"upperValue": "1"
+		}								]
+		},{
+		"guid": "973e3b28-b46a-4364-a656-4eb96b7ffe4e",
+		"members":[
+		{
+		"classGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"className": "Basisdatensatz",
+		"lowerValue": "1",
+		"upperValue": "1"
+		},							{
+		"classGuid": "aff1c5af-ad55-43ca-979e-bea430966121",
+		"className": "Gesetzgeber",
+		"lowerValue": "0",
+		"upperValue": "-1"
+		}								]
+		},{
+		"guid": "75b5f8af-34b6-4e61-b007-a6dc0fe0c426",
+		"members":[
+		{
+		"classGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"className": "Absolutkennwertsatz",
+		"lowerValue": "0",
+		"upperValue": "-1"
+		},							{
+		"classGuid": "9307fc1c-e539-472f-b852-669394e2b3ad",
+		"className": "SA-Delta",
+		"lowerValue": "1",
+		"upperValue": "1"
+		}								]
+		},{
+		"guid": "13dd6c1e-5b56-4c7c-8f45-2cd3bac89b41",
+		"members":[
+		{
+		"classGuid": "db01b159-93fe-44f6-9e64-fd2edaaf68aa",
+		"className": "IP-Familie",
+		"lowerValue": "0",
+		"upperValue": "-1"
+		},							{
+		"classGuid": "ba7d821f-d67b-4678-8e40-af79749012f8",
+		"className": "Gewichtungsdatensatz",
+		"lowerValue": "1",
+		"upperValue": "1"
+		}								]
+		},{
+		"guid": "1a472d77-513f-40c4-8887-159f529071b8",
+		"members":[
+		{
+		"classGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"className": "Basisdatensatz",
+		"lowerValue": "1",
+		"upperValue": "-1"
+		},							{
+		"classGuid": "b8279eb4-3dbc-464c-a0b1-200f80788c85",
+		"className": "Absolutkennwertsatz",
+		"lowerValue": "1",
+		"upperValue": "1"
+		}								]
+		},{
+		"guid": "43d0a773-5529-44d5-913b-e24ead86f29d",
+		"members":[
+		{
+		"classGuid": "cbf9b329-e440-4634-a6f2-171f026a8406",
+		"className": "AktiveAeroMaßnahme",
+		"lowerValue": "1",
+		"upperValue": "~30"
+		},							{
+		"classGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"className": "Stellung",
+		"lowerValue": "1",
+		"upperValue": "1"
+		}								]
+		},{
+		"guid": "ee629764-b67d-4fd5-82ef-5dc24c76a4c1",
+		"members":[
+		{
+		"classGuid": "ce7a1295-e048-4561-aed5-b6e540fc335f",
+		"className": "Fahzeugtyp",
+		"lowerValue": "0",
+		"upperValue": "-1"
+		},							{
+		"classGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"className": "Basisdatensatz",
+		"lowerValue": "1",
+		"upperValue": "1"
+		}								]
+		},{
+		"guid": "0233b987-34ad-42d9-9c52-c5d344169d18",
+		"members":[
+		{
+		"classGuid": "6a6d7512-e907-4774-b340-7eb8c0bcaca9",
+		"className": "Serieneinsatztermin",
+		"lowerValue": "0",
+		"upperValue": "-1"
+		},							{
+		"classGuid": "bbe8ef9b-8756-4ade-b6dc-a947c287cf80",
+		"className": "Basisdatensatz",
+		"lowerValue": "1",
+		"upperValue": "1"
+		}								]
+		},{
+		"guid": "23362947-2d03-41bc-b4ab-6951991aa9d2",
+		"members":[
+		{
+		"classGuid": "3cb13a1f-96a6-4dbb-9b45-afc0be579188",
+		"className": "GemesseneGewichtung",
+		"lowerValue": "1",
+		"upperValue": "-1"
+		},							{
+		"classGuid": "c8ab2a98-496b-4180-ba0c-6be2009b4a54",
+		"className": "Stellung",
+		"lowerValue": "0",
+		"upperValue": "-1"
+		}								]
+		}    ]
+		}

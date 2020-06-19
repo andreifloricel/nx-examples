@@ -1,0 +1,372 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "0.1",
+    "title": "",
+    "license": {
+      "name": ""
+    }
+  },
+  "tags": [
+    {
+      "name": "import"
+    },
+    {
+      "name": "export"
+    },
+    {
+      "name": "manage"
+    }
+  ],
+  "paths": {
+    "/upload": {
+      "post": {
+        "tags": [
+          "import"
+        ],
+        "summary": "Upload (insert or update)",
+        "operationId": "uploadReport",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MDDataModelUploadRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MDDataModelUploadResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/entries": {
+      "get": {
+        "tags": [
+          "manage"
+        ],
+        "summary": "Get entries",
+        "operationId": "getEntries",
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Entries"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Save entry",
+        "operationId": "Save entry",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveEntryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveEntryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "MDDataModelUploadRequest": {
+        "type": "object",
+        "properties": {
+          "packages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MDPackage"
+            }
+          },
+          "classes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MDClass"
+            }
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MDAttribute"
+            }
+          },
+          "enumerations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MDClass"
+            }
+          },
+          "associations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MDAssociation"
+            }
+          }
+        }
+      },
+      "MDDataModelUploadResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Response"
+          }
+        ]
+      },
+      "MDPackage": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MDEntity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "parentGuid": {
+                "$ref": "#/components/schemas/GUID"
+              },
+              "fullName": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "MDClass": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MDEntity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ownerGuid": {
+                "$ref": "#/components/schemas/GUID"
+              },
+              "visibility": {
+                "type": "string"
+              },
+              "documentation": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "MDAttribute": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MDEntity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ownerGuid": {
+                "$ref": "#/components/schemas/GUID"
+              },
+              "packageGuid": {
+                "$ref": "#/components/schemas/GUID"
+              },
+              "typeGuid": {
+                "$ref": "#/components/schemas/GUID"
+              },
+              "text": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "typeModifier": {
+                "type": "string"
+              },
+              "isID": {
+                "type": "string"
+              },
+              "lowerValue": {
+                "type": "string"
+              },
+              "upperValue": {
+                "type": "string"
+              },
+              "documentation": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "MDAssociation": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MDRelationship"
+          }
+        ]
+      },
+      "MDEntity": {
+        "type": "object",
+        "properties": {
+          "guid": {
+            "$ref": "#/components/schemas/GUID"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "MDRelationship": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MDEntity"
+          }
+        ],
+        "properties": {
+          "members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MDRelationshipPoint"
+            }
+          }
+        }
+      },
+      "MDRelationshipPoint": {
+        "type": "object",
+        "properties": {
+          "classGuid": {
+            "$ref": "#/components/schemas/GUID"
+          },
+          "className": {
+            "type": "string"
+          },
+          "lowerValue": {
+            "type": "string"
+          },
+          "upperValue": {
+            "type": "string"
+          }
+        }
+      },
+      "SaveEntryRequest": {
+        "type": "object",
+        "properties": {
+          "lastLoadedTimestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "entry": {
+            "$ref": "#/components/schemas/Entry"
+          }
+        }
+      },
+      "SaveEntryResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Response"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "$ref": "#/components/schemas/Entries"
+              }
+            }
+          }
+        ]
+      },
+      "Entries": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Entry"
+        }
+      },
+      "Entry": {
+        "type": "object",
+        "properties": {
+          "guid": {
+            "$ref": "#/components/schemas/GUID"
+          },
+          "package": {
+            "type": "string"
+          },
+          "entity": {
+            "type": "string"
+          },
+          "property": {
+            "type": "string"
+          },
+          "translations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Translation"
+            }
+          }
+        }
+      },
+      "GUID": {
+        "type": "string"
+      },
+      "Translation": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "shortForm": {
+            "type": "string"
+          },
+          "longForm": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

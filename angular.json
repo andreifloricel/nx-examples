@@ -98,7 +98,10 @@
               "apps/products/tsconfig.app.json",
               "apps/products/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/products/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/products/**/*"
+            ]
           }
         },
         "test": {
@@ -144,7 +147,10 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/products-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**", "!apps/products-e2e/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/products-e2e/**/*"
+            ]
           }
         }
       }
@@ -229,7 +235,10 @@
               "apps/cart/tsconfig.app.json",
               "apps/cart/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/cart/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cart/**/*"
+            ]
           }
         },
         "test": {
@@ -275,7 +284,10 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/cart-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**", "!apps/cart-e2e/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cart-e2e/**/*"
+            ]
           }
         }
       }
@@ -289,8 +301,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/shared/product/types/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/shared/product/types/**/*"]
+            "tsConfig": [
+              "libs/shared/product/types/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/product/types/**/*"
+            ]
           }
         }
       }
@@ -304,8 +321,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/shared/product/data/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/shared/product/data/**/*"]
+            "tsConfig": [
+              "libs/shared/product/data/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/product/data/**/*"
+            ]
           }
         }
       }
@@ -323,7 +345,10 @@
               "libs/shared/product/ui/tsconfig.lib.json",
               "libs/shared/product/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/product/ui/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/product/ui/**/*"
+            ]
           }
         },
         "test": {
@@ -350,7 +375,10 @@
               "libs/products/home-page/tsconfig.lib.json",
               "libs/products/home-page/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/products/home-page/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/products/home-page/**/*"
+            ]
           }
         },
         "test": {
@@ -382,7 +410,10 @@
               "libs/cart/cart-page/tsconfig.lib.json",
               "libs/cart/cart-page/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/cart/cart-page/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/cart/cart-page/**/*"
+            ]
           }
         },
         "test": {
@@ -405,8 +436,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/shared/e2e-utils/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/shared/e2e-utils/**/*"]
+            "tsConfig": [
+              "libs/shared/e2e-utils/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/e2e-utils/**/*"
+            ]
           }
         }
       }
@@ -420,8 +456,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/shared/jsxify/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/shared/jsxify/**/*"]
+            "tsConfig": [
+              "libs/shared/jsxify/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/jsxify/**/*"
+            ]
           }
         }
       }
@@ -439,7 +480,10 @@
               "libs/shared/cart/state/tsconfig.lib.json",
               "libs/shared/cart/state/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/cart/state/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/cart/state/**/*"
+            ]
           }
         },
         "test": {
@@ -471,7 +515,10 @@
               "libs/shared/product/state/tsconfig.lib.json",
               "libs/shared/product/state/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/product/state/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/product/state/**/*"
+            ]
           }
         },
         "test": {
@@ -510,7 +557,10 @@
               "libs/shared/header/tsconfig.lib.json",
               "libs/shared/header/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/header/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/header/**/*"
+            ]
           }
         },
         "test": {
@@ -568,11 +618,34 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/shared/styles/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/shared/styles/**/*"]
+            "tsConfig": [
+              "libs/shared/styles/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/styles/**/*"
+            ]
           }
         }
       }
+    },
+    "products-service": {
+      "root": "apps/products-service",
+      "sourceRoot": "apps/products-service/src",
+      "projectType": "application",
+      "schematics": {}
+    },
+    "cart-service": {
+      "root": "apps/cart-service",
+      "sourceRoot": "apps/products-service/src",
+      "projectType": "application",
+      "schematics": {}
+    },
+    "some-java-util": {
+      "root": "libs/some-java-util",
+      "sourceRoot": "libs/some-java-util/src",
+      "projectType": "library",
+      "schematics": {}
     }
   },
   "cli": {
